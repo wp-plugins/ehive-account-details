@@ -42,7 +42,7 @@ div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-acc
 }
 div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-single-image a.zoom {
 	display:block; 
-	background: url(/wp-content/plugins/eHiveAccountDetails/images/magnifyingglass_btn.png) bottom;
+	background: url(/wp-content/plugins/ehive-account-details/images/magnifyingglass_btn.png) bottom;
 	width:30px;
 	height:22px;
 	padding:0;
@@ -52,7 +52,7 @@ div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-acc
     right: 30px;	
 }
 div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-single-image a.zoom:hover {
-	background: url(/wp-content/plugins/eHiveAccountDetails/images/magnifyingglass_btn_hover.png) bottom;
+	background: url(/wp-content/plugins/ehive-account-details/images/magnifyingglass_btn_hover.png) bottom;
 }
 
 
@@ -97,19 +97,19 @@ div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-acc
 div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images a.previous{ 	
  	float:left;
 	display:block;
-	background:url(/wp-content/plugins/eHiveAccountDetails/images/previous_rounded.png) bottom;
+	background:url(/wp-content/plugins/ehive-account-details/images/previous_rounded.png) bottom;
 	width:61px;
 	height:22px;
 	padding:0;
 	margin:0;
 }
 div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images a.previous:hover {
- 	background:url(/wp-content/plugins/eHiveAccountDetails/images/previous_rounded_hover.png) bottom;
+ 	background:url(/wp-content/plugins/ehive-account-details/images/previous_rounded_hover.png) bottom;
 }
 div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images a.zoom{
 	float:left;
 	display:block; 
-	background: url(/wp-content/plugins/eHiveAccountDetails/images/zoom.png) bottom;
+	background: url(/wp-content/plugins/ehive-account-details/images/zoom.png) bottom;
 	rel:"prettyPhoto[profileImageGallery]";
 	width:34px;
 	height:22px;
@@ -117,19 +117,19 @@ div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-acc
 	margin:0;
 }
 div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images a.zoom:hover {
-	background: url(/wp-content/plugins/eHiveAccountDetails/images/zoom_hover.png) bottom;
+	background: url(/wp-content/plugins/ehive-account-details/images/zoom_hover.png) bottom;
 } 
 div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images a.next{
 	float:left;
 	display:block; 
-	background: url(/wp-content/plugins/eHiveAccountDetails/images/next_rounded.png) bottom;
+	background: url(/wp-content/plugins/ehive-account-details/images/next_rounded.png) bottom;
 	width:61px;
 	height:22px;
 	padding:0;
 	margin:0;
 }
 div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images a.next:hover {
- 	background: url(/wp-content/plugins/eHiveAccountDetails/images/next_rounded_hover.png) bottom;
+ 	background: url(/wp-content/plugins/ehive-account-details/images/next_rounded_hover.png) bottom;
 }
 
 /*
