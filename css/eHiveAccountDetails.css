@@ -1,0 +1,169 @@
+/*
+	Copyright (C) 2012 Vernon Systems Limited
+
+	This program is free software; you can redistribute it and/or
+	modify it under the terms of the GNU General Public License
+	as published by the Free Software Foundation; either version 2
+	of the License, or (at your option) any later version.
+	
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	
+	You should have received a copy of the GNU General Public License
+	along with this program; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+*/
+/*
+	Single profile image.
+*/
+
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap {
+	width:auto;
+	height:auto;
+	float:left;
+	position: relative;
+}
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-single-image {
+	width: auto;
+	float:left;
+	height:188px;
+	padding:10px;
+	margin:0 16px 10px 0;
+	
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;	    
+}
+
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-single-image img {
+	margin:0;
+}
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-single-image a.zoom {
+	display:block; 
+	background: url(/wp-content/plugins/ehive-account-details/images/magnifyingglass_btn.png) bottom;
+	width:30px;
+	height:22px;
+	padding:0;
+	margin:0;
+	position: absolute;
+    bottom: 20px;
+    right: 30px;	
+}
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-single-image a.zoom:hover {
+	background: url(/wp-content/plugins/ehive-account-details/images/magnifyingglass_btn_hover.png) bottom;
+}
+
+
+/*	
+	More than one profile image.
+*/
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images {
+	float:left;
+	height:188px;
+	padding:10px;
+	margin:0 16px 10px 0;
+	-webkit-border-radius: 4px;
+	-moz-border-radius: 4px;
+	border-radius: 4px;	    
+}
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images div.widget_style {	
+	text-align:center;
+	padding:0;
+	margin:0;
+}
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images div.widget_style ul {
+	margin:0;
+	padding:0;	
+	height: 156px;
+	width: 156px;
+	overflow: hidden;
+} 
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images div.widget_style li {
+	margin:0;
+	padding:0;
+	height:156px;
+	width:156px;
+	list-style:none;
+	float: left;
+
+}
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images div.navigation {
+ 	width:156px;
+ 	height:22px;
+ 	padding:10px 0 0 0;
+}
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images a.previous{ 	
+ 	float:left;
+	display:block;
+	background:url(/wp-content/plugins/ehive-account-details/images/previous_rounded.png) bottom;
+	width:61px;
+	height:22px;
+	padding:0;
+	margin:0;
+}
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images a.previous:hover {
+ 	background:url(/wp-content/plugins/ehive-account-details/images/previous_rounded_hover.png) bottom;
+}
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images a.zoom{
+	float:left;
+	display:block; 
+	background: url(/wp-content/plugins/ehive-account-details/images/zoom.png) bottom;
+	rel:"prettyPhoto[profileImageGallery]";
+	width:34px;
+	height:22px;
+	padding:0;
+	margin:0;
+}
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images a.zoom:hover {
+	background: url(/wp-content/plugins/ehive-account-details/images/zoom_hover.png) bottom;
+} 
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images a.next{
+	float:left;
+	display:block; 
+	background: url(/wp-content/plugins/ehive-account-details/images/next_rounded.png) bottom;
+	width:61px;
+	height:22px;
+	padding:0;
+	margin:0;
+}
+div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-multiple-images a.next:hover {
+ 	background: url(/wp-content/plugins/ehive-account-details/images/next_rounded_hover.png) bottom;
+}
+
+/*
+	Account fields.
+*/
+div.ehive-account-details div.ehive-field span.ehive-field-label {
+	font-weight: bold;
+	display:block;
+}
+
+div.ehive-account-details div.ehive-field ul {
+	list-style-type: none;
+}
+div.ehive-identifier-facilities ul li img,
+div.ehive-identifier-visitor-information ul li img,
+div.ehive-identifier-contact-details ul li img {
+	box-shadow:none;
+	vertical-align: middle;	
+	padding-right: 8px;
+}
+div.ehive-identifier-contact-details,
+div.ehive-identifier-location,
+div.ehive-identifier-facilities,
+div.ehive-identifier-visitor-information {
+	margin-bottom:20px;
+}		
+
+div.ehive-identifier-facilities ul li {
+	display:inline;
+	margin:0;
+	padding:0;
+}
+
+div.ehive-identifier-facilities ul li.ehive-identifier-other-facility {
+	display:block;
+}
+
