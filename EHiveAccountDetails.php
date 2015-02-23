@@ -26,8 +26,13 @@
 	Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */	
 if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins', array()))) {
+	
+	define('EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR', plugin_dir_url( __FILE__ ));
 
     class EHiveAccountDetails {
+    	
+    	const CURRENT_VERSION = 1; // Increment each time an upgrade is required. (Options added or deleted.)
+    	   
 
         function __construct() {
                         
@@ -44,6 +49,13 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
         }
                 
         function ehive_account_details_admin_options_init() {
+        	
+        	
+        	wp_enqueue_script( 'jquery' );
+        	 
+        	wp_enqueue_style( 'farbtastic' );
+        	wp_enqueue_script( 'farbtastic' );
+        	
         
         	register_setting('ehive_account_details_options', 'ehive_account_details_options', array(&$this, 'plugin_options_validate') );
         	 
@@ -83,7 +95,7 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
         	add_settings_field('image_padding', 'Image padding', array(&$this, 'image_padding_fn'), __FILE__, 'css_inline_section');
         	add_settings_field('image_border_colour', 'Image border colour', array(&$this, 'image_border_colour_fn'), __FILE__, 'css_inline_section');
         	add_settings_field('image_border_width', 'Image border width', array(&$this, 'image_border_width_fn'), __FILE__, 'css_inline_section');
-        	echo "<div class='ehive-options-demo-image account-detail-item'><img src='/wp-content/plugins/ehive-account-details/images/account_details_item.png' /></div>";
+        	echo '<div class="ehive-options-demo-image account-detail-item"><img src="'.EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR.'images/account_details_item.png" /></div>';
         }
         
         /***************
@@ -290,8 +302,11 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
 			        	        	
         	if (is_page( $accountDetailsPageId )){        	        	
 
-	        	wp_enqueue_script( 'jquery' );        	
+//	        	wp_enqueue_script( 'jquery' );        	
 	        	
+//	        	wp_enqueue_style( 'farbtastic' );
+//	        	wp_enqueue_script( 'farbtastic' );
+	        		        	
 	        	wp_register_script($handle = 'jcarousellite', $src= plugins_url('jcarousellite_1.0.1.min.js', '/ehive-account-details/js/jcarousellite_1.0.1.min.js'), $deps = array('jquery'), $ver = '1.0.0', false);          	
 	        	wp_enqueue_script( 'jcarousellite' );        	
 	
