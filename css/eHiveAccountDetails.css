@@ -42,7 +42,7 @@ div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-acc
 }
 div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-single-image a.zoom {
 	display:block; 
-	background: url(/wp-content/plugins/ehive-account-details/images/magnifyingglass_btn.png) bottom;
+	background: url(../images/magnifyingglass_btn.png) bottom;
 	width:30px;
 	height:22px;
 	padding:0;
@@ -52,7 +52,7 @@ div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-acc
     right: 30px;	
 }
 div.ehive-account-details div.ehive-item div.ehive-item-image-wrap div.ehive-account-single-image a.zoom:hover {
-	background: url(/wp-content/plugins/ehive-account-details/images/magnifyingglass_btn_hover.png) bottom;
+	background: url(../images/magnifyingglass_btn_hover.png) bottom;
 }
 
 

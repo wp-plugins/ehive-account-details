@@ -123,35 +123,35 @@ if ($css_class == "") {
 				<ul>	
 				<?php if ($account->postalAddress) { ?>
 					<li>
-						<img src="/wp-content/plugins/ehive-account-details/images/postal.png" width="21" height="15" alt="Postal address" title="Postal address"/>
+						<img src="<?php echo EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR?>images/postal.png" width="21" height="15" alt="Postal address" title="Postal address"/>
 						<?php echo $account->postalAddress ?>
 					</li>
 				<?php }?>
 		
 				<?php if ($account->phoneNumber) { ?>
 					<li>
-						<img src="/wp-content/plugins/ehive-account-details/images/telephone.png" width="21" height="15" alt="Telephone number" title="Telephone number"/>
+						<img src="<?php echo EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR?>images/telephone.png" width="21" height="15" alt="Telephone number" title="Telephone number"/>
 			        	<?php echo $account->phoneNumber ?>
 		        	</li>
 		        <?php }?>
 		        
 		        <?php if ($account->facsimile) {?>
 		        	<li>
-						<img src="/wp-content/plugins/ehive-account-details/images/fax.png" width="21" height="15" alt="Fax number" title="Fax number"/>
+						<img src="<?php echo EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR?>images/fax.png" width="21" height="15" alt="Fax number" title="Fax number"/>
 			        	<?php echo $account->facsimile ?>
 		        	</li>
 		        <?php }?>
 		        
 		        <?php if ($account->website) {?>
 		        	<li>
-						<img src="/wp-content/plugins/ehive-account-details/images/website.png" width="21" height="16" alt="Web address" title="Web address"/>
+						<img src="<?php echo EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR?>images/website.png" width="21" height="16" alt="Web address" title="Web address"/>
 			        	<a href='<?php echo $account->website ?>' target='_blank'><?php echo $account->website ?></a>
 		        	</li>
 		        <?php }?>
 		        
 		        <?php if ($account->emailAddress) {?>
 		        	<li>
-						<img src="/wp-content/plugins/ehive-account-details/images/email.png" width="21" height="15" alt="eMail address" title="eMail address"/>
+						<img src="<?php echo EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR?>images/email.png" width="21" height="15" alt="eMail address" title="eMail address"/>
 			        	<a href='mailto:<?php echo $account->emailAddress?>' target='_blank'><?php echo $account->emailAddress ?></a>
 		        	</li>
 		        <?php }?>     
@@ -165,21 +165,21 @@ if ($css_class == "") {
 				<ul>
 				<?php if ($account->physicalAddress) { ?>
 					<li>
-						<img src="/wp-content/plugins/ehive-account-details/images/physical.png" width="21" height="15" alt="Physical address" title="Physical address"/>
+						<img src="<?php echo EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR?>images/physical.png" width="21" height="15" alt="Physical address" title="Physical address"/>
 						<?php echo $account->physicalAddress ?>
 					</li>
 				<?php }?>
 			
 				<?php if ($account->hoursOfOperation) { ?>
 					<li>
-						<img src="/wp-content/plugins/ehive-account-details/images/hours.png" width="21" height="15" alt="Hours of operation" title="Hours of operation"/>
+						<img src="<?php echo EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR?>images/hours.png" width="21" height="15" alt="Hours of operation" title="Hours of operation"/>
 						<?php echo $account->hoursOfOperation ?>
 					</li>
 				<?php }?>
 		
 				<?php if ($account->admissionCharges) { ?>
 					<li>
-						<img src="/wp-content/plugins/ehive-account-details/images/charges.png" width="21" height="15" alt="Admission charges" title="Admission charges"/>
+						<img src="<?php echo EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR?>images/charges.png" width="21" height="15" alt="Admission charges" title="Admission charges"/>
 						<?php echo $account->admissionCharges ?>
 					</li>
 				<?php }?>
@@ -195,16 +195,16 @@ if ($css_class == "") {
 				<span class="ehive-field-label">Facilities</span>
 				<ul>
 				<?php
-				if ($account->wheelChairAccessFacility) echo '<li><img src="/wp-content/plugins/ehive-account-details/images/wheelchairaccess.png" alt="Wheelchair Access" title="Wheelchair Access"/></li>';
-				if ($account->cafeFacility)             echo '<li><img src="/wp-content/plugins/ehive-account-details/images/cafe.png" alt="Cafe" title="Cafe"/></li>';
-				if ($account->referenceLibraryFacility) echo '<li><img src="/wp-content/plugins/ehive-account-details/images/referencelibrary.png" alt="Reference Library" title="Reference Library"/></li>';
-				if ($account->parkingFacility)          echo '<li><img src="/wp-content/plugins/ehive-account-details/images/parking.png" alt="Parking" title="Parking"/></li>';
-				if ($account->shopFacility)             echo '<li><img src="/wp-content/plugins/ehive-account-details/images/shop.png" alt="Shop" title="Shop"/></li>';
-				if ($account->functionSpaceFacility)    echo '<li><img src="/wp-content/plugins/ehive-account-details/images/functionspaces.png" alt="Function Space" title="Function Space"/></li>';
-				if ($account->guidedTourFacility)       echo '<li><img src="/wp-content/plugins/ehive-account-details/images/guidedtour.png" alt="Guided Tours" title="Guided Tours"/></li>';
-				if ($account->publicProgrammesFacility) echo '<li><img src="/wp-content/plugins/ehive-account-details/images/publicprogrammes.png" alt="Public Programmes" title="Public Programmes"/></li>';
-				if ($account->membershipClubFacility)   echo '<li><img src="/wp-content/plugins/ehive-account-details/images/membershipclub.png" alt="Membership Club" title="Membership Club"/></li>';
-				if ($account->toiletFacility)           echo '<li><img src="/wp-content/plugins/ehive-account-details/images/toilets.png" alt="Toilets" title="Toilets"/></li>';	
+				if ($account->wheelChairAccessFacility) echo '<li><img src="'.EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR.'images/wheelchairaccess.png" alt="Wheelchair Access" title="Wheelchair Access"/></li>';
+				if ($account->cafeFacility)             echo '<li><img src="'.EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR.'images/cafe.png" alt="Cafe" title="Cafe"/></li>';
+				if ($account->referenceLibraryFacility) echo '<li><img src="'.EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR.'images/referencelibrary.png" alt="Reference Library" title="Reference Library"/></li>';
+				if ($account->parkingFacility)          echo '<li><img src="'.EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR.'images/parking.png" alt="Parking" title="Parking"/></li>';
+				if ($account->shopFacility)             echo '<li><img src="'.EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR.'images/shop.png" alt="Shop" title="Shop"/></li>';
+				if ($account->functionSpaceFacility)    echo '<li><img src="'.EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR.'images/functionspaces.png" alt="Function Space" title="Function Space"/></li>';
+				if ($account->guidedTourFacility)       echo '<li><img src="'.EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR.'images/guidedtour.png" alt="Guided Tours" title="Guided Tours"/></li>';
+				if ($account->publicProgrammesFacility) echo '<li><img src="'.EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR.'images/publicprogrammes.png" alt="Public Programmes" title="Public Programmes"/></li>';
+				if ($account->membershipClubFacility)   echo '<li><img src="'.EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR.'images/membershipclub.png" alt="Membership Club" title="Membership Club"/></li>';
+				if ($account->toiletFacility)           echo '<li><img src="'.EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR.'images/toilets.png" alt="Toilets" title="Toilets"/></li>';	
 				if ($account->otherFacility)            echo '<li class="ehive-identifier-other-facility">'.$account->otherFacility.'</li>';	
 				?>
 				</ul>

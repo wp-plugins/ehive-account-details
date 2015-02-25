@@ -4,7 +4,7 @@
 	Plugin URI: http://developers.ehive.com/wordpress-plugins/
 	Author: Vernon Systems limited
 	Description: Displays the public profile page for an eHive account. The <a href="http://developers.ehive.com/wordpress-plugins#ehiveaccess" target="_blank">eHiveAccess plugin</a> must be installed.
-	Version: 2.1.1
+	Version: 2.1.2
 	Author URI: http://vernonsystems.com
 	License: GPL2+
 */
@@ -32,24 +32,24 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
     class EHiveAccountDetails {
     	
     	const CURRENT_VERSION = 1; // Increment each time an upgrade is required. (Options added or deleted.)
+    	const EHIVE_ACCOUNT_DETAILS_OPTIONS = "ehive_account_details_options";
     	   
-
         function __construct() {
                         
-        	add_action("admin_init", array(&$this, "ehive_account_details_admin_options_init"));
-        	
+        	add_action("admin_init", array(&$this, "ehive_account_details_admin_options_init"));        	
         	add_action("admin_menu", array(&$this, "ehive_account_details_admin_menu"));
         	         	
             add_action('get_ehive_account_details', array(&$this, 'get_ehive_account_details'));
                         
-            add_shortcode('ehive_account_details', array(&$this, 'ehive_account_details_shortcode'));    
-
 			add_action( 'wp_print_styles', array(&$this,'enqueue_styles')); 
-			add_action( 'wp_print_scripts', array(&$this,'enqueue_scripts'));     			      
+			add_action( 'wp_print_scripts', array(&$this,'enqueue_scripts'));
+
+			add_shortcode('ehive_account_details', array(&$this, 'ehive_account_details_shortcode'));				
         }
                 
         function ehive_account_details_admin_options_init() {
         	
+        	$this->ehive_plugin_update();
         	
         	wp_enqueue_script( 'jquery' );
         	 
@@ -67,17 +67,11 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
         	
         }
         
-        /*
-         * Validation
-         */
         function plugin_options_validate($input) {
         	add_settings_error('ehive_account_details_options', 'updated', 'eHive Account Details settings saved.', 'updated');
         	return $input;
         }
         
-        /*
-         * Options page content
-         */
         function  comment_section_fn() {
         	echo "<p><em>An overview of the plugin and shortcode documentation is available in the help.</em></p>";
         }
@@ -98,9 +92,6 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
         	echo '<div class="ehive-options-demo-image account-detail-item"><img src="'.EHIVE_ACCOUNT_DETAILS_PLUGIN_DIR.'images/account_details_item.png" /></div>';
         }
         
-        /***************
-         * CSS SECTION *
-         ***************/
         function plugin_css_enabled_fn() {
         	$options = get_option('ehive_account_details_options');
         	if($options['plugin_css_enabled']) {
@@ -114,9 +105,6 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
         	echo "<input id='css_class' name='ehive_account_details_options[css_class]' class='regular-text' type='text' value='{$options['css_class']}' />";
         }
         	
-        /******************************
-         * INLINE CSS OPTIONS SECTION *
-        ******************************/
         function gallery_background_colour_fn() {
         	$options = get_option('ehive_account_details_options');
         	if(isset($options['gallery_background_colour_enabled']) && $options['gallery_background_colour_enabled'] == 'on') {
@@ -183,9 +171,6 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
         }
 
         
-        /*
-         * Admin menu setup
-         */
         function ehive_account_details_admin_menu() {
         
         	global $ehive_account_details_options_page;
@@ -199,18 +184,12 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
         	add_action("admin_print_styles-" . $ehive_account_details_options_page, array(&$this, "ehive_account_details_admin_enqueue_styles") );
         }				
 
-        /*
-         * Admin menu link
-         */
         function ehive_account_details_plugin_action_links($links, $file) {
         	$settings_link = '<a href="admin.php?page=ehive_account">' . __('Settings') . '</a>';
         	array_unshift($links, $settings_link); // before other links
         	return $links;
         }
         
-        /*
-         * Plugin options help setup
-         */
         function ehive_account_details_options_help() {
         	global $ehive_account_details_options_page;
         
@@ -243,16 +222,10 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
         	$screen->set_help_sidebar('<p><strong>For more information:</strong></p><p><a href="http://developers.ehive.com/wordpress-plugins#ehiveaccountdetails" target="_blank">Documentation for eHive plugins</a></p>');
         }
 
-        /*
-         * Add admin stylesheets
-         */
         function ehive_account_details_admin_enqueue_styles() {
         	wp_enqueue_style('eHiveAdminCSS');
         }
         
-        /*
-         * Admin page setup
-         */
 		function ehive_account_details_options_page() {
 			?>
 		    <div class="wrap">
@@ -270,9 +243,6 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
 			<?php
 		}            
         
-		/*
-		 * Add plugin stylesheet
-		 */
         public function enqueue_styles() {        
 			global $eHiveAccess; 
         	
@@ -292,9 +262,6 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
         	}        	
         }
         
-        /*
-         * Add plugin scripts
-         */
         public function enqueue_scripts() {
         	global $eHiveAccess;
         	
@@ -302,11 +269,8 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
 			        	        	
         	if (is_page( $accountDetailsPageId )){        	        	
 
-//	        	wp_enqueue_script( 'jquery' );        	
-	        	
-//	        	wp_enqueue_style( 'farbtastic' );
-//	        	wp_enqueue_script( 'farbtastic' );
-	        		        	
+	        	wp_enqueue_script( 'jquery' );        	
+	        		        		        	
 	        	wp_register_script($handle = 'jcarousellite', $src= plugins_url('jcarousellite_1.0.1.min.js', '/ehive-account-details/js/jcarousellite_1.0.1.min.js'), $deps = array('jquery'), $ver = '1.0.0', false);          	
 	        	wp_enqueue_script( 'jcarousellite' );        	
 	
@@ -317,14 +281,10 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
 	        	wp_enqueue_script( 'googleMapAPI' );
 	        	
 	        	wp_register_script($handle = 'eHiveAccountDetails', $src= plugins_url('eHiveAccountDetails.js', '/ehive-account-details/js/eHiveAccountDetails.js'), $deps = array('jquery','jcarousellite','prettyPhoto','googleMapAPI'), $ver = '1.0.0', false);          	
-	        	wp_enqueue_script( 'eHiveAccountDetails' );
-	        	
+	        	wp_enqueue_script( 'eHiveAccountDetails' );	        	
         	}   
         }        	        
         
-        /*
-		 * Shortcode setup
-		 */
         public function ehive_account_details_shortcode($atts, $content) {
         	$options = get_option('ehive_account_details_options');
         	
@@ -400,35 +360,59 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
             return $rules;
         }
         
-        /*
-         * On plugin activate
-         */
-        public function activate() {        
+		function ehive_plugin_update() {     
 				 
-        	$arr = array("plugin_css_enabled"=>"on",
-						 "css_class"=>"",
-						 "gallery_background_colour"=>"#f3f3f3",
-						 "gallery_background_colour_enabled"=>'on',
-						 "gallery_border_colour"=>"#666666",
-						 "gallery_border_colour_enabled"=>'',
-						 "gallery_border_width"=>"2",
-						 "image_background_colour"=>"#ffffff",
-						 "image_background_colour_enabled"=>'on',
-						 "image_padding"=>"1",
-						 "image_padding_enabled"=>"on",
-						 "image_border_colour"=>"#666666",
-						 "image_border_colour_enabled"=>'on',
-						 "image_border_width"=>"2"
-						);        
-        	update_option('ehive_account_details_options', $arr);        
+			// Add the default options.
+			if ( get_option(self::EHIVE_ACCOUNT_DETAILS_OPTIONS) === false ) {
+
+        		$arr = array("update_version"=>self::CURRENT_VERSION,
+							 "plugin_css_enabled"=>"on",
+							 "css_class"=>"",
+							 "gallery_background_colour"=>"#f3f3f3",
+							 "gallery_background_colour_enabled"=>'on',
+							 "gallery_border_colour"=>"#666666",
+							 "gallery_border_colour_enabled"=>'',
+							 "gallery_border_width"=>"2",
+							 "image_background_colour"=>"#ffffff",
+							 "image_background_colour_enabled"=>'on',
+							 "image_padding"=>"1",
+							 "image_padding_enabled"=>"on",
+							 "image_border_colour"=>"#666666",
+							 "image_border_colour_enabled"=>'on',
+							 "image_border_width"=>"2"
+							);        
+        		update_option(self::EHIVE_ACCOUNT_DETAILS_OPTIONS, $arr);  
+
+        	} else {
+
+				$options = get_option(self::EHIVE_ACCOUNT_DETAILS_OPTIONS);
+
+				if ( array_key_exists("update_version", $options)) {
+					$updateVersion = $options["update_version"];
+				} else {
+					$updateVersion = 0;
+				}
+
+				if ( $updateVersion == self::CURRENT_VERSION ) {
+					// Nothing to do.
+				}  else {
+
+					if ( $updateVersion == 0 ) {
+						$updateVersion = 1;
+					}
+
+					// End of the update chain, save the options to the database.
+					$options["update_version"] = self::CURRENT_VERSION;
+					update_option(self::EHIVE_ACCOUNT_DETAILS_OPTIONS, $options);
+				}
+			}
+        }
+                
+        public function activate() {
         }
         
-        /*
-         * On plugin deactivate
-         */
         public function deactivate() {
-        	delete_option('ehive_account_details_options');
-        }
+        }        
     }
     
     $eHiveAccountDetails = new EHiveAccountDetails();
