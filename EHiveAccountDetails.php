@@ -257,7 +257,7 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
 	        		wp_enqueue_style( 'eHiveAccountDetailsCSS');
 				}
 	
-	        	wp_register_style($handle = 'prettyPhoto', $src = plugins_url('prettyPhoto.css', '/ehive-account-details/js/prettyphoto/css/prettyPhoto'), $deps = array(), $ver = '1.0.0', $media = 'all');
+	        	wp_register_style($handle = 'prettyPhoto', $src = plugins_url('prettyPhoto.css', '/ehive-account-details/js/prettyPhoto_compressed_3.1.6/css/prettyPhoto'), $deps = array(), $ver = '1.0.0', $media = 'all');
 	        	wp_enqueue_style( 'prettyPhoto');
         	}        	
         }
@@ -274,7 +274,7 @@ if (in_array('ehive-access/EHiveAccess.php', (array) get_option('active_plugins'
 	        	wp_register_script($handle = 'jcarousellite', $src= plugins_url('jcarousellite_1.0.1.min.js', '/ehive-account-details/js/jcarousellite_1.0.1.min.js'), $deps = array('jquery'), $ver = '1.0.0', false);          	
 	        	wp_enqueue_script( 'jcarousellite' );        	
 	
-	        	wp_register_script($handle = 'prettyPhoto', $src= plugins_url('jquery.prettyPhoto.js', '/ehive-account-details/js/prettyphoto/js/jquery.prettyPhoto.js'), $deps = array('jquery'), $ver = '1.0.0', false);          	
+	        	wp_register_script($handle = 'prettyPhoto', $src= plugins_url('jquery.prettyPhoto.js', '/ehive-account-details/js/prettyPhoto_compressed_3.1.6/js/jquery.prettyPhoto.js'), $deps = array('jquery'), $ver = '1.0.0', false);          	
 	        	wp_enqueue_script( 'prettyPhoto' );
 
 	        	wp_register_script($handle = 'googleMapAPI', $src='http://maps.google.com/maps/api/js?sensor=false', $deps = array('jquery'), '', false);

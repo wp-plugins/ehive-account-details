@@ -4,7 +4,7 @@ Donate link:http://ehive.com/what_is_ehive
 Tags: ehive, collection, museum, archive, history
 Requires at least: 3.3.1
 Tested up to: 4.2.2
-Stable tag: 2.1.2
+Stable tag: 2.1.3
 License: GPL2+
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -80,6 +80,10 @@ There are three ways to install a plugin:
 4. Click the "Activate plugin" link below the plugin's name
 
 == Changelog ==
+= 2.1.3 =
+* Upgraded prettyPhoto jQuery lightbox to version 3.1.6 to fix a security exploit.
+
+== Changelog ==
 = 2.1.2 =
 * Fixed broken links to static images when WordPress is installed in a sub folder.
 * Help menu in admin panel now displays when the eHive Search plugin in not installed.
@@ -90,6 +94,12 @@ There are three ways to install a plugin:
 * First stable release of the eHive Access plugin. 
 
 == Upgrade Notice ==
+== Changelog ==
+= 2.1.3 =
+* Recommended update.
+* Upgraded prettyPhoto jQuery lightbox to version 3.1.6 to fix a security exploit.
+
+
 = 2.1.2 =
 * Fixed broken links to static images when WordPress is installed in a sub folder.
 * Help menu in admin panel now displays when the eHive Search plugin in not installed.
